@@ -1,10 +1,10 @@
 module "test_service_account_role" {
-  source  = "terraform-aws-modules/iam/aws//modules/iam-assumable-role-with-oidc"
-  version = "4.2.0"
-  create_role = true
-  role_name = "s3-dev-role"
+  source                        = "terraform-aws-modules/iam/aws//modules/iam-assumable-role-with-oidc"
+  version                       = "4.2.0"
+  create_role                   = true
+  role_name                     = "s3-dev-role"
   oidc_fully_qualified_subjects = ["system:serviceaccount:default:s3-dev-service-account"]
-  provider_url = module.eks.cluster_oidc_issuer_url
+  provider_url                  = module.eks.cluster_oidc_issuer_url
   role_policy_arns = [
     aws_iam_policy.s3_access.arn,
   ]
