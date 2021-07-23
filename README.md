@@ -32,27 +32,31 @@ Include a short readme that explains how to use the Terraform repo and that also
 
 ### Create cluster
 
-Make sure that you have proper permission to AWS EKS
-Terraform 1.0.3 required 
+- Make sure that you have proper permission to AWS EKS
+- Terraform 1.0.3 required 
 
 Replace bucket name in policies in file iam.tf
 
 
 Init configuration
+
 ```
 terraform init
 ```
+
 Create cluster 
+
 ```
 terraform apply -auto-approve
 ```
 
 Get credentials
+
 ```
 aws eks --region $(terraform output -raw region) update-kubeconfig --name $(terraform output -raw cluster_name)
 ```
 
-Note: Config file will be also created in root dir, you can copypaste it under ~/.kube/config
+Note: Config file will be also created in root dir, you can copypaste it to ~/.kube/config
 
 
 ### IAM roles for service accounts
