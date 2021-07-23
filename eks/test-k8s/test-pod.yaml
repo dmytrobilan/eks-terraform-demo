@@ -1,0 +1,15 @@
+# s3cmd/s3cmd
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: example
+spec:
+  serviceAccountName: s3-dev-service-account
+  containers:
+    - name: s3
+      image: amazon/aws-cli
+      command:
+        - tail
+        - -f 
+        - /dev/null
