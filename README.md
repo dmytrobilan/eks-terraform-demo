@@ -62,7 +62,7 @@ Note: Config file will be also created in root dir, you can copypaste it to ~/.k
 ### IAM roles for service accounts
 
 One time action required after cluster created
-(Details)[https://docs.aws.amazon.com/eks/latest/userguide/enable-iam-roles-for-service-accounts.html]
+[Details](https://docs.aws.amazon.com/eks/latest/userguide/enable-iam-roles-for-service-accounts.html)
 
 ```
 eksctl utils associate-iam-oidc-provider --cluster $(terraform output -raw cluster_name) --approve
